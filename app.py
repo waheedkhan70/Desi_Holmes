@@ -6,14 +6,21 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-app = Flask(__name__, template_folder=r'D:\My Project\Bittu\new\Desi_Holmes\template')
+current_directory = os.getcwd()
+print("current directory", current_directory)
+file_path1=os.path.join(current_directory, 'template')
+
+
+
+app = Flask(__name__, template_folder=r'template')
 
 # Load the trained model and vectorizer
 model = pickle.load(open('model.pkl', 'rb'))
 vectorizer = pickle.load(open('vectorizer.pkl', 'rb'))
 
 # Load the dataset
-file_name = r"D:\My Project\Bittu\new\Desi_Holmes\sherlock_holmes_cases.csv"
+# file_name = r"D:\My Project\Bittu\new\Desi_Holmes\sherlock_holmes_cases.csv"
+file_name=os.path.join(current_directory, 'sherlock_holmes_cases.csv')
 df = pd.read_csv(file_name)
 
 

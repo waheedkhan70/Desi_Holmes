@@ -6,6 +6,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
+import os
 
 # Upload your dataset (run this cell to upload the CSV file)
 #from google.colab import files
@@ -13,7 +14,8 @@ import numpy as np
 
 # Read the uploaded file
 #file_name = list(uploaded.keys())[0]
-file_name = (r"C:\Users\shsha\OneDrive\Desktop\Desi_Holmes\sherlock_holmes_cases.csv")
+# file_name = (r"C:\Users\shsha\OneDrive\Desktop\Desi_Holmes\sherlock_holmes_cases.csv")
+file_name=os.path.join(current_directory, 'sherlock_holmes_cases.csv')
 df = pd.read_csv(file_name)
 
 # Preprocessing the data
